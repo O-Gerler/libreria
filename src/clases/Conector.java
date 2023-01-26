@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Conector {
 	
-	private Connection connection;
+	protected Connection connection;
 
 	public Connection getConnection() {
 		return connection;
