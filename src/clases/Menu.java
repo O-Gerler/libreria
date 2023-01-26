@@ -17,7 +17,7 @@ public class Menu {
 		final int ELIMINAR_LIBRO = 2;
 		final int VER_LIBROS = 3;
 		
-		System.out.println("---------------MENU-PRINCIPAL---------------");
+		System.out.println("---------------MENU-LIBROS---------------");
 		System.out.println(INSERTAR_LIBRO  + ".- Insertar libro");
 		System.out.println(ELIMINAR_LIBRO  + ".- Eliminar libro");
 		System.out.println(VER_LIBROS  + ".- Ver libros");
