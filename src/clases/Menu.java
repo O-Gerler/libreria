@@ -22,4 +22,11 @@ public class Menu {
 		System.out.println(ELIMINAR_LIBRO  + ".- Eliminar libro");
 		System.out.println(VER_LIBROS  + ".- Ver libros");
 	}
+	
+	public static void mostrarMenuSocios() {
+		final int VER_SOCIOS = 1;
+		
+		System.out.println("---------------MENU-SOCIOS---------------");
+		System.out.println(VER_SOCIOS  + ".- Ver socios");
+	}
 }
