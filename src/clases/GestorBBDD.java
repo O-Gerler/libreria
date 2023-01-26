@@ -2,6 +2,7 @@ package clases;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class GestorBBDD extends Conector {
 
@@ -20,8 +21,7 @@ public class GestorBBDD extends Conector {
 	
 	public void eliminarLibro(int id) {
 		try {
-			PreparedStatement pst = super.connection
-					.prepareStatement("DELETE FROM libros WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("DELETE FROM libros WHERE id=?");
 			pst.setInt(1, id);
 			pst.execute();
 		} catch (Exception e) {
@@ -34,8 +34,7 @@ public class GestorBBDD extends Conector {
 		Libro libro = null;
 		
 		try {
-			PreparedStatement pst = super.connection
-					.prepareStatement("SELECT FROM libros WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM libros WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
 			libro = new Libro();
@@ -48,5 +47,23 @@ public class GestorBBDD extends Conector {
 		}
 		
 		return libro;
+	}
+	
+	public ArrayList<Libro> getTodosLosLibros() {
+		ArrayList<Libro> libros = new ArrayList<>();
+			
+		try {
+			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM libros");
+			ResultSet rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				libros.add(getLibro(rs.getInt("id")));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return libros;
 	}
 }
