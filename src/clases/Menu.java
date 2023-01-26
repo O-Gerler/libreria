@@ -29,4 +29,11 @@ public class Menu {
 		System.out.println("---------------MENU-SOCIOS---------------");
 		System.out.println(VER_SOCIOS  + ".- Ver socios");
 	}
+	
+	public static void mostrarMenuPrestamos() {
+		final int REALIZAR_PRESTAMO = 1;
+		
+		System.out.println("---------------MENU-PRESTAMOS---------------");
+		System.out.println(REALIZAR_PRESTAMO  + ".- Realizar prestamo");
+	}
 }
