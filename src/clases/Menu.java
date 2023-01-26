@@ -11,4 +11,15 @@ public class Menu {
 		System.out.println(GESTIONAR_SOCIOS  + ".- Gestionar socios");
 		System.out.println(GESTIONAR_PRESTAMOS  + ".- Gestionar prestamos");
 	}
+	
+	public static void mostrarMenuLibros() {
+		final int INSERTAR_LIBRO = 1;
+		final int ELIMINAR_LIBRO = 2;
+		final int VER_LIBROS = 3;
+		
+		System.out.println("---------------MENU-PRINCIPAL---------------");
+		System.out.println(INSERTAR_LIBRO  + ".- Insertar libro");
+		System.out.println(ELIMINAR_LIBRO  + ".- Eliminar libro");
+		System.out.println(VER_LIBROS  + ".- Ver libros");
+	}
 }
