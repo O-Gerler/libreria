@@ -9,5 +9,13 @@ public class Visor {
 			System.out.println(libro);
 		}
 	}
+	
+	public static void mostrarLibro(Libro libro) {
+		System.out.println(libro);
+	}
+	
+	public static void mostrarMensaje(String mensaje) {
+		System.out.println(mensaje);
+	}
 
 }
