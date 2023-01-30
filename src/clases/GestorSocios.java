@@ -10,7 +10,7 @@ public class GestorSocios {
 			Menu.mostrarMenuSocios();
 			opcion = seleccionarOpcion(scan);
 			switch(opcion) {
-			case Menu.GESTIONAR_SOCIOS:
+			case Menu.VER_SOCIOS:
 				System.out.println("Gestionar Socios");
 				break;
 			case Menu.SOCIOS_SALIR:
