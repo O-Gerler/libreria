@@ -1,15 +1,21 @@
 package clases;
 
 public class Menu {
+	
+	private static final int GESTIONAR_LIBROS = 1;
+	private static final int GESTIONAR_SOCIOS = 2;
+	private static final int GESTIONAR_PRESTAMOS = 3;
+	private static final int GESTIONAR_SALIR = 0;
+	
+	
 	public static void mostrarMenuPrincipal() {
-		final int GESTIONAR_LIBROS = 1;
-		final int GESTIONAR_SOCIOS = 2;
-		final int GESTIONAR_PRESTAMOS = 3;
+		
 		
 		System.out.println("---------------MENU-PRINCIPAL---------------");
 		System.out.println(GESTIONAR_LIBROS  + ".- Gestionar libros");
 		System.out.println(GESTIONAR_SOCIOS  + ".- Gestionar socios");
 		System.out.println(GESTIONAR_PRESTAMOS  + ".- Gestionar prestamos");
+		System.out.println(GESTIONAR_SALIR + ".-Salir ");
 	}
 	
 	public static void mostrarMenuLibros() {
