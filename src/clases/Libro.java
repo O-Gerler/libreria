@@ -30,6 +30,8 @@ public class Libro {
 	public void setNumPaginas(int numPaginas) {
 		this.numPaginas = numPaginas;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", numPaginas=" + numPaginas;
+	}
 }
