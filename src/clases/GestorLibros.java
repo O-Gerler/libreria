@@ -6,6 +6,8 @@ public class GestorLibros {
 
 	public void run(Scanner scan) {
 		int opcion;
+		Libro libro = null;
+		GestorBBDD gestorBBDD = null;
 		
 		do {
 			Menu.mostrarMenuLibros();
@@ -14,9 +16,18 @@ public class GestorLibros {
 			switch (opcion) {
 			case Menu.INSERTAR_LIBRO:
 				System.out.println("Insertar libro");
+				libro = FormularioDeDatos.pedirDatosLibro(scan);
+				gestorBBDD = new GestorBBDD();
+				gestorBBDD.conectar();
+				gestorBBDD.insertarLibro(libro);
+				gestorBBDD.cerrar();
 				break;
 			case Menu.ELIMINAR_LIBRO:
 				System.out.println("Eliminar libro");
+				int id = FormularioDeDatos.pedirIDLibro(scan);
+				gestorBBDD.conectar();
+				gestorBBDD.eliminarLibro(id);
+				gestorBBDD.cerrar();
 				break;
 			case Menu.VER_LIBROS:
 				System.out.println("Ver libros");
