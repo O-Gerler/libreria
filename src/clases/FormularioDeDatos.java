@@ -114,5 +114,26 @@ public class FormularioDeDatos {
 		
 		return socio;
 	}
+	
+	public static Socios modificarSocio(Socios socio, Scanner scan) {
+		System.out.println("Datos actuales: ");
+		System.out.println(socio);
+		
+		String nombre = pedirNombreSocio(scan);
+		String apellido = pedirApellidoSocio(scan);
+		String direccion = pedirDireccionSocio(scan);
+		String poblacion = pedirPoblacionSocio(scan);
+		String provincia = pedirProvinciaSocio(scan);
+		String dni = pedirDNISocio(scan);
+		
+		socio.setNombre(nombre);
+		socio.setApellido(apellido);
+		socio.setDireccion(direccion);
+		socio.setPoblacion(poblacion);
+		socio.setProvincia(provincia);
+		socio.setDni(dni);
+		
+		return socio;
+	}
 
 }
