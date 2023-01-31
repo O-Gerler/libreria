@@ -58,19 +58,50 @@ public class FormularioDeDatos {
 	}
 	
 	/*------------------------------PEDIR DATOS SOCIOS---------------------------*/
-	public static Socios pedirDatosSocio(Scanner scan) {
-		System.out.println("Nombre del socio: ");
-		String nombre = scan.nextLine();
-		System.out.println("Apellido del socio: ");
-		String apellido = scan.nextLine();
-		System.out.println("Direccion del socio: ");
-		String direccion = scan.nextLine();
-		System.out.println("Poblacion del socio: ");
-		String poblacion = scan.nextLine();
-		System.out.println("Provincia del socio: ");
-		String provincia = scan.nextLine();
+
+	private static String pedirDNISocio(Scanner scan) {
 		System.out.println("DNI del socio: ");
 		String dni = scan.nextLine();
+		return dni;
+	}
+
+	private static String pedirProvinciaSocio(Scanner scan) {
+		System.out.println("Provincia del socio: ");
+		String provincia = scan.nextLine();
+		return provincia;
+	}
+
+	private static String pedirPoblacionSocio(Scanner scan) {
+		System.out.println("Poblacion del socio: ");
+		String poblacion = scan.nextLine();
+		return poblacion;
+	}
+
+	private static String pedirDireccionSocio(Scanner scan) {
+		System.out.println("Direccion del socio: ");
+		String direccion = scan.nextLine();
+		return direccion;
+	}
+
+	private static String pedirApellidoSocio(Scanner scan) {
+		System.out.println("Apellido del socio: ");
+		String apellido = scan.nextLine();
+		return apellido;
+	}
+
+	private static String pedirNombreSocio(Scanner scan) {
+		System.out.println("Nombre del socio: ");
+		String nombre = scan.nextLine();
+		return nombre;
+	}
+	
+	public static Socios pedirDatosSocio(Scanner scan) {
+		String nombre = pedirNombreSocio(scan);
+		String apellido = pedirApellidoSocio(scan);
+		String direccion = pedirDireccionSocio(scan);
+		String poblacion = pedirPoblacionSocio(scan);
+		String provincia = pedirProvinciaSocio(scan);
+		String dni = pedirDNISocio(scan);
 		
 		
 		Socios socio = new Socios();
@@ -83,4 +114,5 @@ public class FormularioDeDatos {
 		
 		return socio;
 	}
+
 }
