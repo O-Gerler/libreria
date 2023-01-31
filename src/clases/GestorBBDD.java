@@ -96,41 +96,44 @@ public class GestorBBDD extends Conector {
 		}
 	}
 	
-	public Libro getLibro(int id) {
+	public Socios getSocios(int id) {
 		
-		Libro libro = null;
+		Socios socio = null;
 		
 		try {
-			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM libros WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM socios WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			libro = new Libro();
-			libro.setId(rs.getInt("id"));
-			libro.setTitulo(rs.getString("titulo"));
-			libro.setAutor(rs.getString("autor"));
-			libro.setNumPaginas(rs.getInt("num_pag"));
+			socio = new Socios();
+			socio.setId(rs.getInt("id"));
+			socio.setNombre(rs.getString("nombre"));
+			socio.setApellido(rs.getString("apellido"));
+			socio.setDireccion(rs.getString("direccion"));
+			socio.setPoblacion(rs.getString("poblacion"));
+			socio.setProvincia(rs.getString("provincia"));
+			socio.setDni(rs.getString("dni"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return libro;
+		return socio;
 	}
 	
-	public ArrayList<Libro> getTodosLosLibros() {
-		ArrayList<Libro> libros = new ArrayList<>();
+	public ArrayList<Socios> getTodosLosSocios() {
+		ArrayList<Socios> socios = new ArrayList<>();
 			
 		try {
-			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM libros");
+			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM socios");
 			ResultSet rs = pst.executeQuery();
 			
 			while (rs.next()) {
-				libros.add(getLibro(rs.getInt("id")));
+				socios.add(getSocios(rs.getInt("id")));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		
-		return libros;
+		return socios;
 	}
 }
