@@ -135,5 +135,12 @@ public class FormularioDeDatos {
 		
 		return socio;
 	}
+	
+	public static int pedirIDSocio(Scanner scan) {
+		System.out.println("Introduce el ID del socio");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
+	}
 
 }
