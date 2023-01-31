@@ -7,7 +7,6 @@ public class GestorLibros {
 
 	public void run(Scanner scan) {
 		int opcion;
-		Libro libro = null;
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		
 		do {
