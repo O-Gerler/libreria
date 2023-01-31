@@ -6,11 +6,15 @@ public class Menu {
 	static final int GESTIONAR_SOCIOS = 2;
 	static final int GESTIONAR_PRESTAMOS = 3;
 	static final int GESTIONAR_SALIR = 0;
+	
 	static final int INSERTAR_LIBRO = 1;
 	static final int ELIMINAR_LIBRO = 2;
 	static final int VER_LIBROS = 3;
 	static final int LIBROS_SALIR = 0;
-	static final int VER_SOCIOS = 1;
+	
+	static final int INSERTAR_SOCIOS = 1;
+	static final int ELIMINAR_SOCIOS = 2;
+	static final int VER_SOCIOS = 3;
 	static final int SOCIOS_SALIR = 0;
 	static final int REALIZAR_PRESTAMO = 1;
 	static final int PRESTAMOS_SALIR = 1;
@@ -39,6 +43,8 @@ public class Menu {
 		
 		
 		System.out.println("---------------MENU-SOCIOS---------------");
+		System.out.println(INSERTAR_SOCIOS  + ".- Insertar socios");
+		System.out.println(ELIMINAR_SOCIOS  + ".- Eliminar socios");
 		System.out.println(VER_SOCIOS  + ".- Ver socios");
 		System.out.println(SOCIOS_SALIR + ".-Salir ");
 	}
