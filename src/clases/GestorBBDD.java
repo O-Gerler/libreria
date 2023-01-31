@@ -69,7 +69,7 @@ public class GestorBBDD extends Conector {
 	
 	/*-------------------------SOCIOS-------------------------*/
 	
-	public void insertarSocios(Socios socio) {
+	public void insertarSocios(Socio socio) {
 		try {
 			PreparedStatement pst = super.connection
 					.prepareStatement("INSERT INTO socios (nombre,apellido,direccion,poblacion,provincia,dni) "
@@ -96,15 +96,15 @@ public class GestorBBDD extends Conector {
 		}
 	}
 	
-	public Socios getSocios(int id) {
+	public Socio getSocios(int id) {
 		
-		Socios socio = null;
+		Socio socio = null;
 		
 		try {
 			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM socios WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
-			socio = new Socios();
+			socio = new Socio();
 			socio.setId(rs.getInt("id"));
 			socio.setNombre(rs.getString("nombre"));
 			socio.setApellido(rs.getString("apellido"));
@@ -119,8 +119,8 @@ public class GestorBBDD extends Conector {
 		return socio;
 	}
 	
-	public ArrayList<Socios> getTodosLosSocios() {
-		ArrayList<Socios> socios = new ArrayList<>();
+	public ArrayList<Socio> getTodosLosSocios() {
+		ArrayList<Socio> socios = new ArrayList<>();
 			
 		try {
 			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM socios");

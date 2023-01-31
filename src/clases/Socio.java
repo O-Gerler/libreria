@@ -1,6 +1,6 @@
 package clases;
 
-public class Socios {
+public class Socio {
 	private int id;
 	private String nombre;
 	private String apellido;

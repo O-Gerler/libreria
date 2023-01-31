@@ -95,7 +95,7 @@ public class FormularioDeDatos {
 		return nombre;
 	}
 	
-	public static Socios pedirDatosSocio(Scanner scan) {
+	public static Socio pedirDatosSocio(Scanner scan) {
 		String nombre = pedirNombreSocio(scan);
 		String apellido = pedirApellidoSocio(scan);
 		String direccion = pedirDireccionSocio(scan);
@@ -104,7 +104,7 @@ public class FormularioDeDatos {
 		String dni = pedirDNISocio(scan);
 		
 		
-		Socios socio = new Socios();
+		Socio socio = new Socio();
 		socio.setNombre(nombre);
 		socio.setApellido(apellido);
 		socio.setDireccion(direccion);
@@ -115,7 +115,7 @@ public class FormularioDeDatos {
 		return socio;
 	}
 	
-	public static Socios modificarSocio(Socios socio, Scanner scan) {
+	public static Socio modificarSocio(Socio socio, Scanner scan) {
 		System.out.println("Datos actuales: ");
 		System.out.println(socio);
 		
