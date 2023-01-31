@@ -16,24 +16,13 @@ public class GestorLibros {
 
 			switch (opcion) {
 			case Menu.INSERTAR_LIBRO:
-				System.out.println("Insertar libro");
-				libro = FormularioDeDatos.pedirDatosLibro(scan);
-				gestorBBDD.conectar();
-				gestorBBDD.insertarLibro(libro);
-				gestorBBDD.cerrar();
+				insertarLibro(scan, gestorBBDD);
 				break;
 			case Menu.ELIMINAR_LIBRO:
-				System.out.println("Eliminar libro");
-				int id = FormularioDeDatos.pedirIDLibro(scan);
-				gestorBBDD.conectar();
-				gestorBBDD.eliminarLibro(id);
-				gestorBBDD.cerrar();
+				eliminarLibro(scan, gestorBBDD);
 				break;
 			case Menu.VER_LIBROS:
-				System.out.println("Ver libros");
-				gestorBBDD.conectar();
-				ArrayList<Libro> libros = gestorBBDD.getTodosLosLibros();
-				Visor.mostrarLibros(libros);
+				verLibros(gestorBBDD);
 				break;
 			case Menu.LIBROS_SALIR:
 				System.out.println("Saliendo...");
@@ -43,6 +32,27 @@ public class GestorLibros {
 			}
 
 		} while (opcion != Menu.LIBROS_SALIR);
+	}
+
+	private void verLibros(GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		ArrayList<Libro> libros = gestorBBDD.getTodosLosLibros();
+		Visor.mostrarLibros(libros);
+	}
+
+	private void eliminarLibro(Scanner scan, GestorBBDD gestorBBDD) {
+		int id = FormularioDeDatos.pedirIDLibro(scan);
+		gestorBBDD.conectar();
+		gestorBBDD.eliminarLibro(id);
+		gestorBBDD.cerrar();
+	}
+
+	private void insertarLibro(Scanner scan, GestorBBDD gestorBBDD) {
+		Libro libro;
+		libro = FormularioDeDatos.pedirDatosLibro(scan);
+		gestorBBDD.conectar();
+		gestorBBDD.insertarLibro(libro);
+		gestorBBDD.cerrar();
 	}
 	
 	private static int seleccionarOpcion(Scanner scan) {
