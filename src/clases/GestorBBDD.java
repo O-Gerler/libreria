@@ -72,7 +72,7 @@ public class GestorBBDD extends Conector {
 	public void insertarSocios(Socios socio) {
 		try {
 			PreparedStatement pst = super.connection
-					.prepareStatement("INSERT INTO libros (nombre,apellido,direccion,poblacion,provincia,dni) "
+					.prepareStatement("INSERT INTO socios (nombre,apellido,direccion,poblacion,provincia,dni) "
 							+ "VALUES (?,?,?,?,?,?)");
 			pst.setString(1, socio.getNombre());
 			pst.setString(2, socio.getApellido());
@@ -86,9 +86,9 @@ public class GestorBBDD extends Conector {
 		}
 	}
 	
-	public void eliminarLibro(int id) {
+	public void eliminarSocio(int id) {
 		try {
-			PreparedStatement pst = super.connection.prepareStatement("DELETE FROM libros WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("DELETE FROM socios WHERE id=?");
 			pst.setInt(1, id);
 			pst.execute();
 		} catch (Exception e) {
