@@ -1,5 +1,6 @@
 package clases;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestorLibros {
@@ -7,7 +8,7 @@ public class GestorLibros {
 	public void run(Scanner scan) {
 		int opcion;
 		Libro libro = null;
-		GestorBBDD gestorBBDD = null;
+		GestorBBDD gestorBBDD = new GestorBBDD();
 		
 		do {
 			Menu.mostrarMenuLibros();
@@ -17,7 +18,6 @@ public class GestorLibros {
 			case Menu.INSERTAR_LIBRO:
 				System.out.println("Insertar libro");
 				libro = FormularioDeDatos.pedirDatosLibro(scan);
-				gestorBBDD = new GestorBBDD();
 				gestorBBDD.conectar();
 				gestorBBDD.insertarLibro(libro);
 				gestorBBDD.cerrar();
@@ -31,6 +31,9 @@ public class GestorLibros {
 				break;
 			case Menu.VER_LIBROS:
 				System.out.println("Ver libros");
+				gestorBBDD.conectar();
+				ArrayList<Libro> libros = gestorBBDD.getTodosLosLibros();
+				Visor.mostrarLibros(libros);
 				break;
 			case Menu.LIBROS_SALIR:
 				System.out.println("Saliendo...");
