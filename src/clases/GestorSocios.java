@@ -18,7 +18,7 @@ public class GestorSocios {
 				eliminarSocio(scan, gestorBBDD);
 				break;
 			case Menu.VER_SOCIOS:
-				System.out.println("Gestionar Socios");
+				verSocios(gestorBBDD);
 				break;
 			case Menu.SOCIOS_SALIR:
 				System.out.println("Saliendo...");
@@ -27,6 +27,12 @@ public class GestorSocios {
 				System.out.println("Opcion invalida!");
 			}
 		} while (opcion == Menu.SOCIOS_SALIR);
+	}
+
+	private static void verSocios(GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		Visor.mostrarSocios(gestorBBDD.getTodosLosSocios());
+		gestorBBDD.cerrar();
 	}
 
 	private static void eliminarSocio(Scanner scan, GestorBBDD gestorBBDD) {
