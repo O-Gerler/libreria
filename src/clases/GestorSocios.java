@@ -12,7 +12,7 @@ public class GestorSocios {
 			opcion = seleccionarOpcion(scan);
 			switch(opcion) {
 			case Menu.INSERTAR_SOCIOS:
-				//insertarLibro(scan, gestorBBDD);
+				insertarSocio(scan, gestorBBDD);
 				break;
 			case Menu.ELIMINAR_SOCIOS:
 				//eliminarLibro(scan, gestorBBDD);
@@ -27,6 +27,13 @@ public class GestorSocios {
 				System.out.println("Opcion invalida!");
 			}
 		} while (opcion == Menu.SOCIOS_SALIR);
+	}
+
+	private static void insertarSocio(Scanner scan, GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		Socio socio = FormularioDeDatos.pedirDatosSocio(scan);
+		gestorBBDD.insertarSocios(socio);
+		gestorBBDD.cerrar();
 	}
 
 	private static int seleccionarOpcion(Scanner scan) {
