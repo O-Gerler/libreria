@@ -15,7 +15,7 @@ public class GestorSocios {
 				insertarSocio(scan, gestorBBDD);
 				break;
 			case Menu.ELIMINAR_SOCIOS:
-				//eliminarLibro(scan, gestorBBDD);
+				eliminarSocio(scan, gestorBBDD);
 				break;
 			case Menu.VER_SOCIOS:
 				System.out.println("Gestionar Socios");
@@ -27,6 +27,13 @@ public class GestorSocios {
 				System.out.println("Opcion invalida!");
 			}
 		} while (opcion == Menu.SOCIOS_SALIR);
+	}
+
+	private static void eliminarSocio(Scanner scan, GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		int id = FormularioDeDatos.pedirIDSocio(scan);
+		gestorBBDD.eliminarSocio(id);
+		gestorBBDD.cerrar();
 	}
 
 	private static void insertarSocio(Scanner scan, GestorBBDD gestorBBDD) {
