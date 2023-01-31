@@ -56,4 +56,31 @@ public class FormularioDeDatos {
 		
 		return id;
 	}
+	
+	/*------------------------------PEDIR DATOS SOCIOS---------------------------*/
+	public static Socios pedirDatosSocio(Scanner scan) {
+		System.out.println("Nombre del socio: ");
+		String nombre = scan.nextLine();
+		System.out.println("Apellido del socio: ");
+		String apellido = scan.nextLine();
+		System.out.println("Direccion del socio: ");
+		String direccion = scan.nextLine();
+		System.out.println("Poblacion del socio: ");
+		String poblacion = scan.nextLine();
+		System.out.println("Provincia del socio: ");
+		String provincia = scan.nextLine();
+		System.out.println("DNI del socio: ");
+		String dni = scan.nextLine();
+		
+		
+		Socios socio = new Socios();
+		socio.setNombre(nombre);
+		socio.setApellido(apellido);
+		socio.setDireccion(direccion);
+		socio.setPoblacion(poblacion);
+		socio.setProvincia(provincia);
+		socio.setDni(dni);
+		
+		return socio;
+	}
 }
