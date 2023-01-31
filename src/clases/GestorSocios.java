@@ -6,10 +6,17 @@ public class GestorSocios {
 
 	public static void run(Scanner scan) {
 		int opcion;
+		GestorBBDD gestorBBDD = new GestorBBDD();
 		do {
 			Menu.mostrarMenuSocios();
 			opcion = seleccionarOpcion(scan);
 			switch(opcion) {
+			case Menu.INSERTAR_SOCIOS:
+				//insertarLibro(scan, gestorBBDD);
+				break;
+			case Menu.ELIMINAR_SOCIOS:
+				//eliminarLibro(scan, gestorBBDD);
+				break;
 			case Menu.VER_SOCIOS:
 				System.out.println("Gestionar Socios");
 				break;
