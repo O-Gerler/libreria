@@ -22,7 +22,7 @@ public class Conector {
 		final String PASSWORD = "";
 		
 		try {
-			Class.forName("com.jdbc.mysql.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection(HOST,USER,PASSWORD);
 		} catch (Exception e) {
 			e.printStackTrace();
