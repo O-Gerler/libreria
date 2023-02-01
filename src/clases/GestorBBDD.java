@@ -34,9 +34,10 @@ public class GestorBBDD extends Conector {
 		Libro libro = null;
 		
 		try {
-			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM libros WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM libros WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
+			rs.next();
 			libro = new Libro();
 			libro.setId(rs.getInt("id"));
 			libro.setTitulo(rs.getString("titulo"));
@@ -101,17 +102,19 @@ public class GestorBBDD extends Conector {
 		Socio socio = null;
 		
 		try {
-			PreparedStatement pst = super.connection.prepareStatement("SELECT FROM socios WHERE id=?");
+			PreparedStatement pst = super.connection.prepareStatement("SELECT * FROM socios WHERE id=?");
 			pst.setInt(1, id);
-			ResultSet rs = pst.executeQuery();
+			ResultSet rSet = pst.executeQuery();
+			rSet.next();
 			socio = new Socio();
-			socio.setId(rs.getInt("id"));
-			socio.setNombre(rs.getString("nombre"));
-			socio.setApellido(rs.getString("apellido"));
-			socio.setDireccion(rs.getString("direccion"));
-			socio.setPoblacion(rs.getString("poblacion"));
-			socio.setProvincia(rs.getString("provincia"));
-			socio.setDni(rs.getString("dni"));
+			socio.setId(rSet.getInt("id"));
+			socio.setNombre(rSet.getString("nombre"));
+			socio.setApellido(rSet.getString("apellido"));
+			socio.setDireccion(rSet.getString("direccion"));
+			socio.setPoblacion(rSet.getString("poblacion"));
+			socio.setProvincia(rSet.getString("provincia"));
+			socio.setDni(rSet.getString("dni"));
+			rSet.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
