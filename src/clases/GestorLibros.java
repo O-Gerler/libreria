@@ -20,6 +20,9 @@ public class GestorLibros {
 			case Menu.ELIMINAR_LIBRO:
 				eliminarLibro(scan, gestorBBDD);
 				break;
+			case Menu.MODIFICAR_LIBRO:
+				System.out.println("Modificar Libro");
+				break;
 			case Menu.VER_LIBROS:
 				verLibros(gestorBBDD);
 				break;
