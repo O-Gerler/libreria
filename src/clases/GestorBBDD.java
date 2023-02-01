@@ -155,4 +155,22 @@ public class GestorBBDD extends Conector {
 		
 		return socios;
 	}
+	
+	public void modificarSocio(Socio socio) {
+		String st = "UPDATE socios SET nombre=?,apellido=?,direccion=?,poblacion=?,provincia=?,dni=? WHERE socios.id = ?; ";
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			pst.setString(1, socio.getNombre());
+			pst.setString(2, socio.getApellido());
+			pst.setString(3, socio.getDireccion());
+			pst.setString(4, socio.getPoblacion());
+			pst.setString(5, socio.getProvincia());
+			pst.setString(6, socio.getDni());
+			pst.setInt(7, socio.getId());
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
