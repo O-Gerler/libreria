@@ -17,6 +17,9 @@ public class GestorSocios {
 			case Menu.ELIMINAR_SOCIOS:
 				eliminarSocio(scan, gestorBBDD);
 				break;
+			case Menu.MODIFICAR_SOCIOS:
+				System.out.println("Modificar socios");
+				break;
 			case Menu.VER_SOCIOS:
 				verSocios(gestorBBDD);
 				break;
