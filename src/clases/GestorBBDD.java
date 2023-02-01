@@ -178,7 +178,7 @@ public class GestorBBDD extends Conector {
 	}
 	
 	/*------------------------------------------PRESTAMOS----------------------------------------*/
-	private ArrayList<Prestamos> getPrestamos() {
+	public ArrayList<Prestamos> getPrestamos() {
 		ArrayList<Prestamos> prestamos = null;
 		String st = "SELECT * FROM prestamos";
 		
@@ -201,4 +201,10 @@ public class GestorBBDD extends Conector {
 		
 		return prestamos;
 	}
+	
+	public void insertarPrestamos(Prestamos prestamo) {
+		String st = "INSERT INTO socios VALUES (?,?,?,?)";
+	}
+	
+	
 }
