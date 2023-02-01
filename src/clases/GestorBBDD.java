@@ -3,7 +3,10 @@ package clases;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class GestorBBDD extends Conector {
 
@@ -172,5 +175,30 @@ public class GestorBBDD extends Conector {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	/*------------------------------------------PRESTAMOS----------------------------------------*/
+	private ArrayList<Prestamos> getPrestamos() {
+		ArrayList<Prestamos> prestamos = null;
+		String st = "SELECT * FROM prestamos";
+		
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			ResultSet rs = pst.executeQuery();
+			
+			while(rs.next()) {
+				Prestamos prestamo = new Prestamos();
+				prestamo.setIdLibro(rs.getInt("id_libro"));
+				prestamo.setIdSocio(rs.getInt("id_socio"));
+				prestamo.setFecha(rs.getDate("fecha"));
+				prestamo.setDevuelto(rs.getInt("devuelto") == 1 ? true : false);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return prestamos;
 	}
 }
