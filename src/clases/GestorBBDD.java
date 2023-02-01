@@ -2,6 +2,7 @@ package clases;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class GestorBBDD extends Conector {
@@ -66,6 +67,21 @@ public class GestorBBDD extends Conector {
 		
 		
 		return libros;
+	}
+	
+	public void modificarLibro(Libro libro) {
+		String st = "UPDATE libros SET titulo = ? , autor = ?, num_pag = ? WHERE libros.id = ?";
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			pst.setString(1, libro.getTitulo());
+			pst.setString(2, libro.getTitulo());
+			pst.setInt(3, libro.getNumPaginas());
+			pst.setInt(4, libro.getId());
+			pst.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/*-------------------------SOCIOS-------------------------*/
