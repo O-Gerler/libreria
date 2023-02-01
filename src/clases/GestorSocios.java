@@ -18,7 +18,7 @@ public class GestorSocios {
 				eliminarSocio(scan, gestorBBDD);
 				break;
 			case Menu.MODIFICAR_SOCIOS:
-				System.out.println("Modificar socios");
+				modificarSocio(scan, gestorBBDD);
 				break;
 			case Menu.VER_SOCIOS:
 				verSocios(gestorBBDD);
@@ -30,6 +30,15 @@ public class GestorSocios {
 				System.out.println("Opcion invalida!");
 			}
 		} while (opcion == Menu.SOCIOS_SALIR);
+	}
+
+	private static void modificarSocio(Scanner scan, GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		int id = FormularioDeDatos.pedirIDSocio(scan);
+		Socio socio = gestorBBDD.getSocios(id);
+		socio = FormularioDeDatos.modificarSocio(socio, scan);
+		gestorBBDD.modificarSocio(socio);
+		gestorBBDD.cerrar();
 	}
 
 	private static void verSocios(GestorBBDD gestorBBDD) {
