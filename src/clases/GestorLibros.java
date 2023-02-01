@@ -21,7 +21,7 @@ public class GestorLibros {
 				eliminarLibro(scan, gestorBBDD);
 				break;
 			case Menu.MODIFICAR_LIBRO:
-				System.out.println("Modificar Libro");
+				modificarLibro(scan, gestorBBDD);
 				break;
 			case Menu.VER_LIBROS:
 				verLibros(gestorBBDD);
@@ -34,6 +34,15 @@ public class GestorLibros {
 			}
 
 		} while (opcion != Menu.LIBROS_SALIR);
+	}
+
+	private void modificarLibro(Scanner scan, GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		int id = FormularioDeDatos.pedirIDLibro(scan);
+		Libro libro = gestorBBDD.getLibro(id);
+		libro = FormularioDeDatos.modificarDatosLibro(libro, scan);
+		gestorBBDD.modificarLibro(libro);
+		gestorBBDD.cerrar();
 	}
 
 	private void verLibros(GestorBBDD gestorBBDD) {
