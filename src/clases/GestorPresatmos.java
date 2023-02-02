@@ -31,6 +31,7 @@ public class GestorPresatmos {
 			//	break;
 			case Menu.VER_PRESTAMO:
 				System.out.println("Ver prestamos");
+				Visor.mostrarPrestamos(gestorBBDD.getPrestamos());
 				break;
 			case Menu.PRESTAMOS_SALIR:
 				System.out.println("Saliendo...");
