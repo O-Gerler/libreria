@@ -244,18 +244,6 @@ public class GestorBBDD extends Conector {
 	public boolean eliminarLibro(Prestamos prestamo) {
 		ArrayList<Prestamos> prestamos = getPrestamos();
 		
-		if (prestamos == null) {
-			return false;
-		}
-		
-		for (Prestamos prest : prestamos) {
-			if (prest.getIdLibro() == prestamo.getIdLibro() 
-					&& prest.getIdSocio() == prestamo.getIdSocio() 
-					&& prest.getFecha().equals(prestamo.getFecha())) {
-				return false;
-			}
-		}
-		
 		String st = "DELETE FROM PRESTAMOS WHERE id_libro=? AND id_socio=? AND fecha=?";
 		
 		try {
