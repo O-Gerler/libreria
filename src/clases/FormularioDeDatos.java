@@ -147,11 +147,7 @@ public class FormularioDeDatos {
 	}
 	
 	/*--------------------------------------PRESTAMOS-------------------------------------------------*/
-	public Prestamos pedirDatosPrestamos(Scanner scan) {
-		System.out.print("Introduce el id de libro: ");
-		int idLibro = Integer.parseInt(scan.nextLine());
-		System.out.print("Introduce el id de socio: ");
-		int idSocio = Integer.parseInt(scan.nextLine());
+	private Date pedirFecha(Scanner scan) {
 		System.out.print("Introduce la fecha (yyyy/mm/dd): ");
 		Date fecha = null;
 		try {
@@ -160,6 +156,25 @@ public class FormularioDeDatos {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return fecha;
+	}
+
+	private int pedirIdSocio(Scanner scan) {
+		System.out.print("Introduce el id de socio: ");
+		int idSocio = Integer.parseInt(scan.nextLine());
+		return idSocio;
+	}
+
+	private int pedirIdLibro(Scanner scan) {
+		System.out.print("Introduce el id de libro: ");
+		int idLibro = Integer.parseInt(scan.nextLine());
+		return idLibro;
+	}
+	
+	public Prestamos pedirDatosPrestamos(Scanner scan) {
+		int idLibro = pedirIdLibro(scan);
+		int idSocio = pedirIdSocio(scan);
+		Date fecha = pedirFecha(scan);
 		
 		Prestamos prestamo = new Prestamos();
 		
@@ -169,5 +184,6 @@ public class FormularioDeDatos {
 		
 		return prestamo;
 	}
+
 
 }
