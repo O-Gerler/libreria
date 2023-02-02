@@ -50,7 +50,7 @@ public class GestorPresatmos {
 		gestorBBDD.conectar();
 		Prestamos prestamo = FormularioDeDatos.pedirDatosPrestamos(scan);
 		if (FormularioDeDatos.existePrestamo(prestamo, gestorBBDD)) {
-			gestorBBDD.insertarPrestamo(prestamo);
+			gestorBBDD.eliminarPrestamo(prestamo);
 		}else {
 			System.out.println("ERROR!!!");
 		}
