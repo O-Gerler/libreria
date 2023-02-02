@@ -184,12 +184,15 @@ public class GestorBBDD extends Conector {
 			PreparedStatement pst = super.connection.prepareStatement(st);
 			ResultSet rs = pst.executeQuery();
 			
+			prestamos = new ArrayList<>();
+			
 			while(rs.next()) {
 				Prestamos prestamo = new Prestamos();
 				prestamo.setIdLibro(rs.getInt("id_libro"));
 				prestamo.setIdSocio(rs.getInt("id_socio"));
 				prestamo.setFecha(rs.getDate("fecha"));
 				prestamo.setDevuelto(rs.getInt("devuelto") == 1 ? true : false);
+				prestamos.add(prestamo);
 			}
 			
 		} catch (SQLException e) {
@@ -198,6 +201,29 @@ public class GestorBBDD extends Conector {
 		}
 		
 		return prestamos;
+	}
+	
+	public Prestamos getPrestamo(Prestamos prestamo) {
+		String st = "SELECT * FROM PRESTAMOS WHERE id_libro=? AND id_socio=? AND fecha=?";
+		Prestamos prest = new Prestamos();
+		
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			pst.setInt(1, prestamo.getIdLibro());
+			pst.setInt(2, prestamo.getIdSocio());
+			pst.setDate(3, (Date) prestamo.getFecha());
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			prest.setIdLibro(rs.getInt("id_libro"));
+			prest.setIdSocio(rs.getInt("id_socio"));
+			prest.setFecha(rs.getDate("fecha"));
+			prest.setDevuelto(rs.getInt("devuelto") == 1 ? true : false);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return prest;
 	}
 	
 	public void insertarPrestamo(Prestamos prestamo) {
