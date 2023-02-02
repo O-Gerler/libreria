@@ -61,8 +61,8 @@ public class Menu {
 		
 		System.out.println("---------------MENU-PRESTAMOS---------------");
 		System.out.println(REALIZAR_PRESTAMO  + ".- Realizar prestamo");
-		System.out.println(REALIZAR_PRESTAMO  + ".- Elimiar prestamo");
-		System.out.println(REALIZAR_PRESTAMO  + ".- Ver prestamo");
+		System.out.println(ELIMINAR_PRESTAMO  + ".- Elimiar prestamo");
+		System.out.println(VER_PRESTAMO  + ".- Ver prestamo");
 		System.out.println(PRESTAMOS_SALIR + ".-Salir ");
 	}
 }
