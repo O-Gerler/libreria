@@ -20,7 +20,7 @@ public class GestorBiblioteca {
 				GestorSocios.run(scan);
 				break;
 			case Menu.GESTIONAR_PRESTAMOS:
-				System.out.println("Gestionar prestamos");
+				new GestorPresatmos().run(scan);
 				break;
 			case Menu.GESTIONAR_SALIR:
 				System.out.println("Saliendo...");
