@@ -148,7 +148,7 @@ public class FormularioDeDatos {
 	}
 	
 	/*--------------------------------------PRESTAMOS-------------------------------------------------*/
-	private Date pedirFecha(Scanner scan) {
+	private static Date pedirFecha(Scanner scan) {
 		System.out.print("Introduce la fecha (yyyy/mm/dd): ");
 		Date fecha = null;
 		try {
@@ -160,19 +160,19 @@ public class FormularioDeDatos {
 		return fecha;
 	}
 
-	private int pedirIdSocio(Scanner scan) {
+	private static int pedirIdSocio(Scanner scan) {
 		System.out.print("Introduce el id de socio: ");
 		int idSocio = Integer.parseInt(scan.nextLine());
 		return idSocio;
 	}
 
-	private int pedirIdLibro(Scanner scan) {
+	private static int pedirIdLibro(Scanner scan) {
 		System.out.print("Introduce el id de libro: ");
 		int idLibro = Integer.parseInt(scan.nextLine());
 		return idLibro;
 	}
 	
-	public Prestamos pedirDatosPrestamos(Scanner scan) {
+	public static Prestamos pedirDatosPrestamos(Scanner scan) {
 		int idLibro = pedirIdLibro(scan);
 		int idSocio = pedirIdSocio(scan);
 		Date fecha = pedirFecha(scan);
@@ -187,7 +187,7 @@ public class FormularioDeDatos {
 	}
 
 
-	public boolean existePrestamo(Prestamos prestamo, GestorBBDD gestorBBDD) {
+	public static boolean existePrestamo(Prestamos prestamo, GestorBBDD gestorBBDD) {
 		
 		ArrayList<Prestamos> prestamos = gestorBBDD.getPrestamos();
 		
