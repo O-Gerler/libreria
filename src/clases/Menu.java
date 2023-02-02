@@ -20,7 +20,9 @@ public class Menu {
 	static final int SOCIOS_SALIR = 0;
 	
 	static final int REALIZAR_PRESTAMO = 1;
-	static final int PRESTAMOS_SALIR = 1;
+	static final int ELIMINAR_PRESTAMO = 2;
+	static final int VER_PRESTAMO = 3;
+	static final int PRESTAMOS_SALIR = 0;
 	
 	public static void mostrarMenuPrincipal() {
 		
@@ -59,6 +61,8 @@ public class Menu {
 		
 		System.out.println("---------------MENU-PRESTAMOS---------------");
 		System.out.println(REALIZAR_PRESTAMO  + ".- Realizar prestamo");
+		System.out.println(REALIZAR_PRESTAMO  + ".- Elimiar prestamo");
+		System.out.println(REALIZAR_PRESTAMO  + ".- Ver prestamo");
 		System.out.println(PRESTAMOS_SALIR + ".-Salir ");
 	}
 }
