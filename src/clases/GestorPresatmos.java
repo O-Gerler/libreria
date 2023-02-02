@@ -9,7 +9,7 @@ public class GestorPresatmos {
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		
 		do {
-			Menu.mostrarMenuLibros();
+			Menu.mostrarMenuPrestamos();
 			opcion = seleccionarOpcion(scan);
 
 			switch (opcion) {
@@ -31,7 +31,9 @@ public class GestorPresatmos {
 			//	break;
 			case Menu.VER_PRESTAMO:
 				System.out.println("Ver prestamos");
+				gestorBBDD.conectar();
 				Visor.mostrarPrestamos(gestorBBDD.getPrestamos());
+				gestorBBDD.cerrar();
 				break;
 			case Menu.PRESTAMOS_SALIR:
 				System.out.println("Saliendo...");
