@@ -2,6 +2,7 @@ package clases;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -186,4 +187,19 @@ public class FormularioDeDatos {
 	}
 
 
+	public boolean existePrestamo(Prestamos prestamo, GestorBBDD gestorBBDD) {
+		
+		ArrayList<Prestamos> prestamos = gestorBBDD.getPrestamos();
+		
+		for (Prestamos prest : prestamos) {
+			if (prest.getIdLibro() == prestamo.getIdLibro() 
+					&& prest.getIdSocio() == prestamo.getIdSocio() 
+					&& prest.getFecha().equals(prestamo.getFecha())) {
+				return true;
+			}
+		}
+		
+		
+		return false;
+	}
 }
