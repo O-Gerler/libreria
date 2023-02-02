@@ -227,12 +227,12 @@ public class GestorBBDD extends Conector {
 	}
 	
 	public void insertarPrestamo(Prestamos prestamo) {
-		String st = "INSERT INTO socios VALUES (?,?,?,?)";
+		String st = "INSERT INTO prestamos VALUES (?,?,?,?)";
 		try {
 			PreparedStatement pst = super.connection.prepareStatement(st);
 			pst.setInt(1, prestamo.getIdLibro());
 			pst.setInt(2, prestamo.getIdSocio());
-			pst.setDate(3, (java.sql.Date) prestamo.getFecha());
+			pst.setDate(3, new Date(prestamo.getFecha().getTime()));
 			pst.setInt(4, prestamo.isDevuelto() ? 1 : 0);
 			pst.execute();
 		} catch (SQLException e) {
@@ -242,7 +242,6 @@ public class GestorBBDD extends Conector {
 	}
 	
 	public boolean eliminarLibro(Prestamos prestamo) {
-		ArrayList<Prestamos> prestamos = getPrestamos();
 		
 		String st = "DELETE FROM PRESTAMOS WHERE id_libro=? AND id_socio=? AND fecha=?";
 		
