@@ -1,5 +1,6 @@
 package clases;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -211,6 +212,38 @@ public class GestorBBDD extends Conector {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean eliminarLibro(Prestamos prestamo) {
+		ArrayList<Prestamos> prestamos = getPrestamos();
+		
+		if (prestamos == null) {
+			return false;
+		}
+		
+		for (Prestamos prest : prestamos) {
+			if (prest.getIdLibro() == prestamo.getIdLibro() 
+					&& prest.getIdSocio() == prestamo.getIdSocio() 
+					&& prest.getFecha().equals(prestamo.getFecha())) {
+				return false;
+			}
+		}
+		
+		String st = "DELETE FROM PRESTAMOS WHERE id_libro=? AND id_socio=? AND fecha=?";
+		
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			pst.setInt(1, prestamo.getIdLibro());
+			pst.setInt(2, prestamo.getIdSocio());
+			pst.setDate(3, (Date) prestamo.getFecha());
+			return pst.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 	
 	
