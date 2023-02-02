@@ -1,5 +1,8 @@
 package clases;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class FormularioDeDatos {
@@ -141,6 +144,30 @@ public class FormularioDeDatos {
 		int id = Integer.parseInt(scan.nextLine());
 		
 		return id;
+	}
+	
+	/*--------------------------------------PRESTAMOS-------------------------------------------------*/
+	public Prestamos pedirDatosPrestamos(Scanner scan) {
+		System.out.print("Introduce el id de libro: ");
+		int idLibro = Integer.parseInt(scan.nextLine());
+		System.out.print("Introduce el id de socio: ");
+		int idSocio = Integer.parseInt(scan.nextLine());
+		System.out.print("Introduce la fecha (yyyy/mm/dd): ");
+		Date fecha = null;
+		try {
+			fecha = new SimpleDateFormat("yyyy/MM/dd").parse(scan.nextLine());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Prestamos prestamo = new Prestamos();
+		
+		prestamo.setIdLibro(idLibro);
+		prestamo.setIdSocio(idSocio);
+		prestamo.setFecha(fecha);
+		
+		return prestamo;
 	}
 
 }
