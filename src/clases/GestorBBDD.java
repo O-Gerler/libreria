@@ -202,8 +202,18 @@ public class GestorBBDD extends Conector {
 		return prestamos;
 	}
 	
-	public void insertarPrestamos(Prestamos prestamo) {
+	public void insertarPrestamo(Prestamos prestamo) {
 		String st = "INSERT INTO socios VALUES (?,?,?,?)";
+		try {
+			PreparedStatement pst = super.connection.prepareStatement(st);
+			pst.setInt(1, prestamo.getIdLibro());
+			pst.setInt(2, prestamo.getIdSocio());
+			pst.setDate(3, (java.sql.Date) prestamo.getFecha());
+			pst.setInt(4, prestamo.isDevuelto() ? 1 : 0);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
