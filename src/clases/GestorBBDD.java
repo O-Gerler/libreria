@@ -241,7 +241,7 @@ public class GestorBBDD extends Conector {
 		}
 	}
 	
-	public boolean eliminarLibro(Prestamos prestamo) {
+	public boolean eliminarPrestamo(Prestamos prestamo) {
 		
 		String st = "DELETE FROM PRESTAMOS WHERE id_libro=? AND id_socio=? AND fecha=?";
 		
@@ -249,7 +249,7 @@ public class GestorBBDD extends Conector {
 			PreparedStatement pst = super.connection.prepareStatement(st);
 			pst.setInt(1, prestamo.getIdLibro());
 			pst.setInt(2, prestamo.getIdSocio());
-			pst.setDate(3, (Date) prestamo.getFecha());
+			pst.setDate(3, new Date(prestamo.getFecha().getTime()));
 			return pst.execute();
 			
 		} catch (SQLException e) {
