@@ -208,6 +208,7 @@ public class GestorBBDD extends Conector {
 			pst.setInt(2, prestamo.getIdSocio());
 			pst.setDate(3, (java.sql.Date) prestamo.getFecha());
 			pst.setInt(4, prestamo.isDevuelto() ? 1 : 0);
+			pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
