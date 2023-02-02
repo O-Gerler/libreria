@@ -26,6 +26,17 @@ public class Visor {
 		System.out.println(socio);
 	}
 	
+	/*--------------------------PRESTAMOS---------------------------*/
+	public static void mostrarPrestamos(ArrayList<Prestamos> prestamos){
+		for (Prestamos prestamo : prestamos) {
+			System.out.println(prestamo);
+		}
+	}
+	
+	public static void mostrarPrestamo(Prestamos prestamo) {
+		System.out.println(prestamo);
+	}
+	
 	public static void mostrarMensaje(String mensaje) {
 		System.out.println(mensaje);
 	}
