@@ -14,7 +14,14 @@ public class GestorPresatmos {
 
 			switch (opcion) {
 			case Menu.REALIZAR_PRESTAMO:
-				System.out.println("Insertar prestamo");
+				gestorBBDD.conectar();
+				Prestamos prestamo = FormularioDeDatos.pedirDatosPrestamos(scan);
+				if (!FormularioDeDatos.existePrestamo(prestamo, gestorBBDD)) {
+					gestorBBDD.insertarPrestamo(prestamo);
+				}else {
+					System.out.println("ERROR!!!");
+				}
+				gestorBBDD.cerrar();
 				break;
 			case Menu.ELIMINAR_PRESTAMO:
 				System.out.println("Eliminar prestamo");
