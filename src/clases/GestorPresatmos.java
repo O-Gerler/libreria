@@ -25,6 +25,7 @@ public class GestorPresatmos {
 				break;
 			case Menu.ELIMINAR_PRESTAMO:
 				System.out.println("Eliminar prestamo");
+				eliminarPrestamo(scan, gestorBBDD);
 				break;
 			//case Menu.MODIFICAR_LIBRO:
 				/*no esta*/
@@ -43,6 +44,17 @@ public class GestorPresatmos {
 			}
 
 		} while (opcion != Menu.PRESTAMOS_SALIR);
+	}
+
+	private void eliminarPrestamo(Scanner scan, GestorBBDD gestorBBDD) {
+		gestorBBDD.conectar();
+		Prestamos prestamo = FormularioDeDatos.pedirDatosPrestamos(scan);
+		if (FormularioDeDatos.existePrestamo(prestamo, gestorBBDD)) {
+			gestorBBDD.insertarPrestamo(prestamo);
+		}else {
+			System.out.println("ERROR!!!");
+		}
+		gestorBBDD.cerrar();
 	}
 	
 	private static int seleccionarOpcion(Scanner scan) {
